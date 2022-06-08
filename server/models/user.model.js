@@ -15,7 +15,13 @@ const userSchema = new Schema({
     createdAt:{
         type: Date,
         default: Date.now()
-    }
+    },
+    todos: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'todos'
+        }
+    ]
 })
 
 module.exports = mongoose.model("users", userSchema)

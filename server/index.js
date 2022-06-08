@@ -5,6 +5,9 @@ require("dotenv").config();
 const cors = require("cors");
 
 const authRouter = require('./routes/auth');
+const todoRouter = require('./routes/todo');
+
+const middleware = require("./middleware");
 
 const app = express();
 const server = http.createServer(app);
@@ -30,6 +33,8 @@ app.use(
 );
 
 app.use("/api/auth", authRouter);
+app.use(middleware);
+app.use("/api/todo" , todoRouter);
 // app.post("/api/auth/register", authRouter);
 
 server.listen(PORT, () => {

@@ -1,10 +1,10 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
-const skillSchema = new Schema({
+const todoSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true  //can thiet
     },
     description:{
         type: String,
@@ -14,7 +14,7 @@ const skillSchema = new Schema({
     },
     status:{
         type: String,
-        enum: ['To Learn', 'Learning', 'Learned']
+        enum: ['To Learn', 'Learning', 'Learnt']
     },
     user: {
         type: Schema.Types.ObjectId,
@@ -22,4 +22,4 @@ const skillSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("posts", skillSchema)
+module.exports = mongoose.model("todos", todoSchema)
