@@ -35,7 +35,6 @@ app.use(
 app.use("/api/auth", authRouter);
 app.use(middleware);
 app.use("/api/todo" , todoRouter);
-// app.post("/api/auth/register", authRouter);
 
 server.listen(PORT, () => {
     console.log("Server is running on port: " + PORT);

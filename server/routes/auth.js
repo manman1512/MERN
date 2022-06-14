@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
 
   // Su dung try...catch khi bat dau lam viec voi Database.
   try {
-    const User = await user.findOne({ username });
+    const User = await user.findOne({ username }).populate('todos');
 
     if (!User)
       return res
@@ -76,7 +76,7 @@ router.post('/login', async (req, res) => {
 
     // All okay => return token
     const accessToken = jwt.sign({ userId: User._id }, process.env.ACCESS_TOKEN_SECRET);
-    res.json({ success: true, message: 'Dang nhap thanh cong!', accessToken });
+    res.json({ success: true, message: 'Dang nhap thanh cong!', accessToken, User});
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: 'Loi Server!' });
