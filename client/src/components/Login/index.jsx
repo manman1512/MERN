@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axiosClient from '../../axiosClient';
-import { Input } from '../Register'
+import Input from '../common/Input';
 
 export default function Login() {
     const handleSubmit = async (e) => {
